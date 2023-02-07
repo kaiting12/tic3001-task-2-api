@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
 });
 
 // Import book controller
-var bookController = require('./bookController');
+const bookController = require('./bookController');
 // Contact routes
 router.route('/books')
     .get(bookController.index)

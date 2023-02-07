@@ -1,10 +1,8 @@
 // bookModel.js
-var mongoose = require('mongoose');
-// const connectionString = 'mongodb://localhost:27017/DB';
-// mongoose.connect(connectionString);
-// mongoose.set('strictQuery', false);
+const mongoose = require('mongoose');
+
 // Setup schema
-var bookSchema = mongoose.Schema({
+const bookSchema = mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -23,8 +21,9 @@ var bookSchema = mongoose.Schema({
         default: Date.now
     }
 });
+
 // Export Contact model
-var Book = module.exports = mongoose.model('book', bookSchema);
+const Book = module.exports = mongoose.model('book', bookSchema);
 module.exports.get = function (callback, limit) {
     Book.find(callback).limit(limit);
 }

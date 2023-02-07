@@ -1,6 +1,8 @@
 // bookController.js
+
 // Import book model
 Book = require('./bookModel');
+
 // Handle index actions
 exports.index = function (req, res) {
     Book.get(function (err, books) {
@@ -17,6 +19,7 @@ exports.index = function (req, res) {
         });
     });
 };
+
 // Handle create book actions
 exports.new = function (req, res) {
     const book = new Book();
@@ -43,6 +46,7 @@ exports.new = function (req, res) {
         });
     }
 };
+
 // Handle view book info
 exports.view = function (req, res) {
     Book.findById(req.params.book_id, function (err, book) {
@@ -63,6 +67,7 @@ exports.view = function (req, res) {
         }
     });
 };
+
 // Handle update book info
 exports.update = function (req, res) {
     Book.findById(req.params.book_id, function (err, book) {
@@ -108,6 +113,7 @@ exports.update = function (req, res) {
         }
     });
 };
+
 // Handle delete book
 exports.delete = function (req, res) {
     Book.remove({
