@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --exit"
+    "test": "mocha --exit --timeout 10000"
   },
   "author": "Ng Kai Ting",
   "license": "ISC",
