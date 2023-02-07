@@ -9,14 +9,24 @@ let book_id, book_id_2 = "";
 
 
 describe("Initial test!", () => {
-    const book_url = "/api/books";
-
     it("Send message for default URL", done => {
         chai
             .request(app)
             .get("/")
             .end((err, res) => {
                 expect(res).to.have.status(200);
+                expect(res.body.message).to.equals("Hello World with Express");
+                done();
+            });
+    });
+
+    it("Test api url", done => {
+        chai
+            .request(app)
+            .get("/api")
+            .end((err, res) => {
+                expect(res).to.have.status(200);
+                expect(res.body.message).to.equals("Welcome to Library!");
                 done();
             });
     });

@@ -19,11 +19,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb://127.0.0.1:27017/library', { useNewUrlParser: true});
+mongoose.connect('mongodb://127.0.0.1:27017/library', {useNewUrlParser: true});
 var db = mongoose.connection;
 
 // Added check for DB connection
-if(!db)
+if (!db)
     console.log("Error connecting db")
 else
     console.log("Db connected successfully")
@@ -32,7 +32,7 @@ else
 var port = process.env.PORT || 8082;
 
 // Send message for default URL
-app.get('/', (req, res) => res.send('Hello World with Express'));
+app.get('/', (req, res) => res.send({message: 'Hello World with Express'}));
 
 // Use Api routes in the App
 app.use('/api', apiRoutes);
